@@ -1,0 +1,14 @@
+image: rancher/wmi_exporter-package:{{build.tag}}
+manifests:
+  -
+    image: rancher/wmi_exporter-package:{{build.tag}}-windows-1809
+    platform:
+      architecture: amd64
+      os: windows
+      version: 1809
+  -
+    image: rancher/wmi_exporter-package:{{build.tag}}-windows-1903
+    platform:
+      architecture: amd64
+      os: windows
+      version: 1903

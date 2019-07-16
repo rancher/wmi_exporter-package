@@ -1,0 +1,6 @@
+/.dapper
+/.dapper.exe
+/bin
+/dist
+*.swp
+/.trash-cache
