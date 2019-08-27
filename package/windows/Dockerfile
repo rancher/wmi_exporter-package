@@ -6,7 +6,7 @@ ENV WMI_EXPORTER_ARCHIVER_VERSION 0.7.0
 
 SHELL ["powershell", "-NoLogo", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-RUN $WINS_URL = 'https://github.com/thxCode/wins/releases/download/v0.0.1/wins.exe'; \
+RUN $WINS_URL = 'https://github.com/thxCode/wins/releases/download/v0.0.11/wins.exe'; \
     $DST_PATH = 'c:\wins.exe'; \
     \
     Write-Host ('Downloading Wins from {0} ...' -f $URL); \
