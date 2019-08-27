@@ -20,4 +20,4 @@ $winsExposes = $('TCP:{0}' -f $listenPort)
 $winsArgs = $('--collectors.enabled={0} --telemetry.addr=:{1}' -f $enabledCollectors, $listenPort)
 
 
-wins.exe cli prc start --path $winsPath --exposes $winsExposes --args "$winsArgs"
+wins.exe cli prc run --path $winsPath --exposes $winsExposes --args "$winsArgs"
