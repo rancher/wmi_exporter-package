@@ -29,7 +29,9 @@ RUN $BINARY_URL = $('https://github.com/martinlindhe/wmi_exporter/releases/downl
 # FROM mcr.microsoft.com/powershell:nanoserver-${SERVERCORE_VERSION}
 
 RUN Move-Item -Path /wins.exe -Destination /Windows/
-RUN Move-Item -Path /wmi-exporter.exe -Destination /etc/wmi-exporter/
+RUN New-Item -Force -ItemType Directory -Path /etc; \
+    New-Item -Force -ItemType Directory -Path /etc/wmi-exporter; \
+    Move-Item -Path /wmi-exporter.exe -Destination /etc/wmi-exporter/
 COPY entry.ps1 entry.ps1
 #USER ContainerAdministrator
 
