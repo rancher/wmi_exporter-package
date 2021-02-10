@@ -32,6 +32,10 @@ RUN Move-Item -Path /wins.exe -Destination /Windows/
 RUN New-Item -Force -ItemType Directory -Path /etc; \
     New-Item -Force -ItemType Directory -Path /etc/wmi-exporter; \
     Move-Item -Path /wmi-exporter.exe -Destination /etc/wmi-exporter/
+
+# Create a symbolic link pwsh.exe that points to powershell.exe for consistency
+RUN New-Item -ItemType SymbolicLink -Target "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Path "C:\Windows\System32\WindowsPowerShell\v1.0\pwsh.exe"
+
 COPY entry.ps1 entry.ps1
 #USER ContainerAdministrator
 
