@@ -5,7 +5,7 @@ Invoke-Expression -Command "$PSScriptRoot\version.ps1"
 
 $DIR_PATH = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $SRC_PATH = (Resolve-Path "$DIR_PATH\..\..").Path
-cd $SRC_PATH\package\windows
+Set-Location -Path $SRC_PATH\package\windows
 
 
 $TAG = $env:TAG

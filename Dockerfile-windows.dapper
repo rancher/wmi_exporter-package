@@ -5,18 +5,18 @@ ARG DAPPER_HOST_ARCH
 ENV HOST_ARCH=${DAPPER_HOST_ARCH} ARCH=${DAPPER_HOST_ARCH}
 
 RUN pushd c:\; \
-    $URL = 'https://github.com/StefanScherer/docker-cli-builder/releases/download/18.09.6/docker.exe'; \
+    $URL = 'https://github.com/StefanScherer/docker-cli-builder/releases/download/20.10.9/docker.exe'; \
     \
     Write-Host ('Downloading docker from {0} ...' -f $URL); \
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; \
     Invoke-WebRequest -UseBasicParsing -OutFile c:\Windows\docker.exe -Uri $URL; \
     \
     Write-Host 'Complete.'; \
-    popd;
+    Pop-Location;
 
 # upgrade git
 RUN pushd c:\; \
-    $URL = 'https://github.com/git-for-windows/git/releases/download/v2.21.0.windows.1/MinGit-2.21.0-64-bit.zip'; \
+    $URL = 'https://github.com/git-for-windows/git/releases/download/v2.33.1.windows.1/MinGit-2.33.1-64-bit.zip'; \
     \
     Write-Host ('Downloading git from {0} ...' -f $URL); \
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; \
@@ -29,7 +29,7 @@ RUN pushd c:\; \
     Remove-Item -Force -Recurse -Path c:\git.zip; \
     \
     Write-Host 'Complete.'; \
-    popd;
+    Pop-Location;
 
 ENV DAPPER_ENV REPO TAG DRONE_TAG
 ENV DAPPER_SOURCE /source
